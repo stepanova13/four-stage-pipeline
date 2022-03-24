@@ -1,0 +1,31 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+  pre_build:
+    commands:
+      - echo "Check if AWS CLI is installed.."
+      - aws --version
+      - echo "Validating that Python is installed.."
+      - python --version
+      - echo "Validating that the PYTHON PACKAGE MANAGER - pip3 is installed.."
+      - pip3 --version
+      - echo Installing CFN-LINT..
+      - pip3 install cfn-lint 
+      - echo Checking CFN version..
+      - cfn-lint --version
+  build:
+    commands:
+      - echo Validating the cfn template
+      - cfn-lint webserver-template.yaml
+      - echo cfn template build started on `date`
+      - aws cloudformation package --template-file webserver-template.yaml --s3-bucket bcktr --output-template-file outputTemplate.yaml
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files: 
+    - outputTemplate.yaml  # zipped in our build articaft
+    - webserver-template.yaml 

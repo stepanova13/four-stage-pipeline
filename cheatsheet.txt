@@ -1,0 +1,26 @@
+TESTING STEPS:
+
+# Check AWS CLI installed
+aws --version
+
+# Validating that Python is installed
+python --version
+
+# Validating that the PYTHON PACKAGE MANAGER - pip3 is installed
+pip3 --version
+
+# Installing CFN-LINT - https://github.com/stepanova13/cfn-lint/blob/main/README.md
+pip3 install cfn-lint
+
+# Checking cfn version
+cfn-lint --version
+
+# Validating the cfn template
+cfn-lint network-template.yaml
+
+# Building our cfn template - https://docs.aws.amazon.com/cli/latest/reference/cloudformation/package.html
+aws cloudformation package --template-file webserver-template.yaml --s3-bucket bcktr --output-template-file outputTemplate.yaml
+
+
+
+
