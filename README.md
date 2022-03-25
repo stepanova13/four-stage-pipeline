@@ -1,4 +1,4 @@
-# 3-stage-webserver-pipeline-repo
+# three-stage-pipeline
 
 CI/CD pipeline for multi-region (us-east-1/N.Virginia and us-west-1/N.California) deployment with AWS CodePipeline
 
