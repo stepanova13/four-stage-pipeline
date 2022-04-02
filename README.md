@@ -1,8 +1,8 @@
-# three-stage-pipeline
+# four-stage-pipeline
 
 CI/CD pipeline for multi-region (us-east-1/N.Virginia and us-west-1/N.California) deployment with AWS CodePipeline
 
-Building three-stage pipeline to deploy web application with CloudFormation template.
+Building four-stage pipeline to deploy web application with CloudFormation template.
 - Variant 1: Using AWS CodeCommit and AWS CodePipeline.
 - Variant 2: Using GitHub and AWS CodePipeline.
 
